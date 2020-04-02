@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ChatBubble extends StatelessWidget {
+class MessageBubble extends StatelessWidget {
+  final String messageContent;
+  MessageBubble(this.messageContent);
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -15,8 +18,7 @@ class ChatBubble extends StatelessWidget {
                 color: Colors.grey[350],
               ),
               borderRadius: BorderRadius.all(const Radius.circular(5))),
-          child: Text(
-              'This is a very long message. I wonder what the overflow will look like.'),
+          child: Text(messageContent),
         ));
   }
 }
