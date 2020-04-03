@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsup/bottom_navbar.dart';
 import 'package:whatsup/chat_messages/chat_messages.dart';
 import 'package:whatsup/constants.dart';
+import 'package:whatsup/input_text_area.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,8 +16,11 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: Text(AppConstants.appName),
           ),
-          body: Center(
-            child: ChatMessages(),
+          body: Column(
+            children: [
+              Expanded(child: ChatMessages()),
+              Align(alignment: Alignment.bottomCenter, child: InputTextArea())
+            ],
           ),
           bottomNavigationBar: BottomNavBar()),
     );

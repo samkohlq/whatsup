@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class MessageBubble extends StatelessWidget {
   final String messageContent;
-  MessageBubble(this.messageContent);
+  final int createdAt;
+  MessageBubble(this.messageContent, this.createdAt);
 
   @override
   Widget build(BuildContext context) {
