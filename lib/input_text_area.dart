@@ -28,7 +28,7 @@ class InputTextArea extends StatelessWidget {
             textController.clear();
             await messagesReference.document().setData({
               'messageContent': text,
-              'createdAt': new DateTime.now(),
+              'createdAt': new DateTime.now().millisecondsSinceEpoch,
             });
           },
         ),

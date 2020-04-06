@@ -23,7 +23,7 @@ class ChatMessages extends StatelessWidget {
                   snapshot.data.documents.map((DocumentSnapshot document) {
                 return new MessageBubble(
                   document['messageContent'],
-                  // document['createdAt'],
+                  document['createdAt'],
                 );
               }).toList(),
             );
