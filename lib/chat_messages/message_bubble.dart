@@ -6,7 +6,6 @@ class MessageBubble extends StatelessWidget {
   final int createdAt;
 
   MessageBubble(this.messageContent, this.createdAt);
-  // MessageBubble(this.messageContent);
 
   @override
   Widget build(BuildContext context) {

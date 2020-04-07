@@ -5,7 +5,7 @@ import 'package:whatsup/chat_messages/message_bubble.dart';
 class ChatMessages extends StatelessWidget {
   final messagesReference = Firestore.instance
       .collection('messages')
-      .orderBy('createdAt', descending: true);
+      .orderBy('createdAt', descending: false);
 
   @override
   Widget build(BuildContext context) {
