@@ -34,7 +34,6 @@ class SignInButton extends StatelessWidget {
       child: new Text("Sign in"),
       onPressed: () async {
         await signInWithGoogle();
-        print("!!!!!!!!!!!!!!!!! AFTER SIGN IN !!!!!!!!!!!!!!!!!!!");
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => MainContent()),
@@ -64,7 +63,6 @@ Future signInWithGoogle() async {
       final FirebaseUser currentUser = await _auth.currentUser();
       assert(user.uid == currentUser.uid);
 
-      print(user.uid);
       Firestore.instance.document('users/${user.uid}').setData({
         'email': user.email,
         'name': user.displayName,

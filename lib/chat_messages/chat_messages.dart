@@ -5,7 +5,7 @@ import 'package:whatsup/chat_messages/message_bubble.dart';
 class ChatMessages extends StatelessWidget {
   final messagesReference = Firestore.instance
       .collection('messages')
-      .orderBy('createdAt', descending: false);
+      .orderBy('createdAt', descending: true);
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +18,12 @@ class ChatMessages extends StatelessWidget {
             return new Text('Loading...');
           default:
             return new ListView(
+              reverse: true,
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               children:
                   snapshot.data.documents.map((DocumentSnapshot document) {
                 return new MessageBubble(
+                  document['userName'],
                   document['messageContent'],
                   document['createdAt'],
                 );
