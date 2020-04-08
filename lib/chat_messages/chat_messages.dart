@@ -15,7 +15,10 @@ class ChatMessages extends StatelessWidget {
         if (snapshot.hasError) return new Text('Error: ${snapshot.error}');
         switch (snapshot.connectionState) {
           case ConnectionState.waiting:
-            return new Text('Loading...');
+            return Align(
+              alignment: Alignment.center,
+              child: CircularProgressIndicator(),
+            );
           default:
             return new ListView(
               reverse: true,
