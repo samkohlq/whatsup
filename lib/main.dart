@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:whatsup/bottom_navbar.dart';
 import 'package:whatsup/chat_messages/chat_messages.dart';
+import 'package:whatsup/chat_messages/input_text_area.dart';
 import 'package:whatsup/constants.dart';
-import 'package:whatsup/input_text_area.dart';
 import 'package:whatsup/sign_in_with_google.dart';
 
 void main() {
@@ -26,6 +26,19 @@ class MainContent extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(AppConstants.appName),
+          leading: FlatButton(
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
+            onPressed: () async {
+              signOut();
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MyApp()),
+              );
+            },
+          ),
         ),
         body: Column(
           children: [
