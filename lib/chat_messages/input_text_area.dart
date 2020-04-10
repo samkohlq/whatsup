@@ -2,9 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-final FirebaseAuth _auth = FirebaseAuth.instance;
-
 class InputTextArea extends StatelessWidget {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   final messagesReference = Firestore.instance.collection('messages');
 
   @override
@@ -28,13 +27,15 @@ class InputTextArea extends StatelessWidget {
           child: Icon(Icons.send),
           onPressed: () async {
             final text = textController.text;
-            final user = await _auth.currentUser();
+            final currentUser = await _auth.currentUser();
+            // clear input area once user sends message
             textController.clear();
+            // update firestore with user's new message
             await messagesReference.document().setData({
               'messageContent': text,
               'createdAt': new DateTime.now().millisecondsSinceEpoch,
-              'userName': user.displayName,
-              'userUid': user.uid,
+              'userName': currentUser.displayName,
+              'userUid': currentUser.uid,
             });
           },
         ),

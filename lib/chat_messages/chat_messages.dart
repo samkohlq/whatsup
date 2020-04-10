@@ -4,6 +4,8 @@ import 'package:whatsup/chat_messages/input_text_area.dart';
 import 'package:whatsup/chat_messages/message_bubble.dart';
 
 class ChatMessages extends StatelessWidget {
+  // creates a reference to messages collection
+  // after sorting documents by createdAt in descending order
   final messagesReference = Firestore.instance
       .collection('messages')
       .orderBy('createdAt', descending: true);
@@ -17,8 +19,9 @@ class ChatMessages extends StatelessWidget {
           stream: messagesReference.snapshots(),
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (snapshot.hasError) return new Text('Error: ${snapshot.error}');
+            if (snapshot.hasError) return Text('Error: ${snapshot.error}');
             switch (snapshot.connectionState) {
+              // show loading spinner until messages have been retrieved
               case ConnectionState.waiting:
                 return Align(
                   alignment: Alignment.center,
@@ -26,6 +29,7 @@ class ChatMessages extends StatelessWidget {
                 );
               default:
                 return new ListView(
+                  // show latest messages at the bottom
                   reverse: true,
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                   children:

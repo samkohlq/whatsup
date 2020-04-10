@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: AppConstants.appName,
-      // home holds the widget to render for the default route of the app
+      // home holds the widget to render as the default route of the app
       home: SignInWithGoogle(),
     );
   }
@@ -29,6 +29,7 @@ class MainContent extends StatelessWidget {
               Icons.arrow_back,
               color: Colors.white,
             ),
+            // sign user out if back button pressed
             onPressed: () async {
               signOut();
               Navigator.push(
