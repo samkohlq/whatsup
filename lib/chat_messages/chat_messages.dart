@@ -25,7 +25,7 @@ class ChatMessages extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               children:
                   snapshot.data.documents.map((DocumentSnapshot document) {
-                return new MessageBubble(
+                return new Message(
                   document.documentID,
                   document['userName'],
                   document['userUid'],
