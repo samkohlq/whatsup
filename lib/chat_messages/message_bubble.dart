@@ -39,9 +39,9 @@ class SentMessageBubble extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 10),
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
-                    color: Colors.grey[350],
+                    color: Colors.lightBlue[100],
                     border: Border.all(
-                      color: Colors.grey[350],
+                      color: Colors.lightBlue[100],
                     ),
                     borderRadius: BorderRadius.all(const Radius.circular(5))),
                 child: Column(
