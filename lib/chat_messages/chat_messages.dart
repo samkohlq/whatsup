@@ -26,6 +26,7 @@ class ChatMessages extends StatelessWidget {
               children:
                   snapshot.data.documents.map((DocumentSnapshot document) {
                 return new MessageBubble(
+                  document.documentID,
                   document['userName'],
                   document['userUid'],
                   document['messageContent'],
